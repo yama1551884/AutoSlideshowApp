@@ -53,8 +53,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     ) {
         when (requestCode) {
             PERMISSIOM_REQUEST_CODE ->
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getContentsInfo()
+                } else {
+                start_button.isClickable = false
+                return_button.isClickable = false
+                next_button.isClickable = false
+            }
         }
     }
 
